@@ -15,11 +15,11 @@
 ## 2. Deep Gaussian Process Framework
 - **Conceptual Setup**  
   - A 2-layer DGP:  
-    1. First layer: \(\mathbf{f}^{(1)}(\mathbf{x}) \sim \mathcal{GP}(\mu_1, k_1)\)  
-    2. Second layer: \(y(\mathbf{x}) \sim \mathcal{GP}\bigl(\mu_2, k_2[\mathbf{f}^{(1)}(\mathbf{x})]\bigr)\)  
+    1. First layer: $\mathbf{f}^{(1)}(\mathbf{x}) \sim \mathcal{GP}(\mu_1, k_1)$ 
+    2. Second layer: $y(\mathbf{x}) \sim \mathcal{GP}\bigl(\mu_2, k_2[\mathbf{f}^{(1)}(\mathbf{x})]\bigr)$
   - Additional layers can be added similarly, each receiving latent outputs from the previous layer.
-  - The final layer output is the predicted response \(y(\mathbf{x})\).
-  - Each layer’s kernel function \(k_i\) can be chosen to capture different types of input-output relationships.
+  - The final layer output is the predicted response $y(\mathbf{x})$.
+  - Each layer’s kernel function $k_i$ can be chosen to capture different types of input-output relationships.
 
 - **Parameters and Estimation**  
   - Hyperparameters appear at each layer (length scales, variances, etc.).  
@@ -28,7 +28,7 @@
 
 - **Non-Adaptive (Static) Design Context**  
   - The DGP framework itself can be fit to any fixed design (not just active learning).  
-  - For non-adaptive design, one simply selects a set of \((\mathbf{x}_i, y_i)\) points in advance and fits the DGP.  
+  - For non-adaptive design, one simply selects a set of $(\mathbf{x}_i, y_i)$ points in advance and fits the DGP.  
   - The main difference is that, without active learning, all data points are chosen up front.
 
 ---
@@ -49,7 +49,7 @@
   - Methods for hyperparameter sampling (e.g., MCMC) and predictions at test points.  
   - Diagnostic tools to assess convergence and model fit.
 - **Usage Workflow**  
-  1. Prepare a design \(\mathbf{X}\) and responses \(\mathbf{y}\).  
+  1. Prepare a design $\mathbf{X}$ and responses $\mathbf{y}$.  
   2. Choose layer depth (e.g., 1, 2, or 3).  
   3. Initialize or choose kernel parameters (optionally letting `deepgp` do it automatically).  
   4. Run MCMC (or other estimation routine).  
