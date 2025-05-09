@@ -1,1 +1,126 @@
-# DeepGP
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# DeepGP: Deep Gaussian Process Models for Function Approximation
+
+## Project Overview
+
+This repository contains research on Deep Gaussian Process (DeepGP)
+models for advanced function approximation. The project focuses on
+comparing standard Gaussian Process (GP) models with Deep Gaussian
+Process variants (DGP2 and DGP3) across multiple complex test functions.
+
+## Research Objectives
+
+- Evaluate the performance of standard Gaussian Processes
+- Compare standard GP with two-layer (DGP2) and three-layer (DGP3) Deep
+  Gaussian Process models
+- Analyze model behavior across different function complexities and
+  dimensionalities
+
+## Test Functions
+
+The project evaluates model performance using five benchmark test
+functions:
+
+1.  **Ackley Function**:
+    - Multimodal function with many local minima
+    - Typically evaluated in 2-10 dimensions
+    - Input range: \[-32.768, 32.768\]
+    - Global minimum at the origin
+2.  **Hartmann-6 Function**:
+    - 6-dimensional function with multiple local minima
+    - Input range: \[0, 1\]
+    - Global minimum: approximately -3.32
+3.  **Branin Function**:
+    - 2-dimensional function with three global minima
+    - Input ranges: x1 ∈ \[-5, 10\], x2 ∈ \[0, 15\]
+    - Serves as a baseline case for standard GP performance
+4.  **Michalewicz Function**:
+    - Features steep ridges and valleys
+    - d! local minima
+    - Typically evaluated in 2-10 dimensions
+    - Input range: \[0, π\]
+    - Steepness controlled by parameter m (default=10)
+5.  **Rosenbrock Function**:
+    - Also known as the Banana function
+    - Narrow curved valley with strong parameter dependencies
+    - Typically evaluated in 2-20 dimensions
+    - Input range: \[-5, 10\]
+
+## Repository Structure
+
+- `R/`: Core R scripts for model implementation
+  - Function-specific implementations:
+    - `ackley.R`
+    - `branin.R`
+    - `hart6.R`
+    - `michalewicz.R`
+    - `rosenbrock.R`
+  - Utility scripts:
+    - `analyze_combo.R`
+    - `evaluate_function.R`
+    - `fit_model.R`
+    - `generate_data.R`
+    - `generate_design.R`
+    - `get_function.R`
+    - `predict_deepgp.R`
+    - `run_experiment.R`
+    - `scale_x.R`
+    - `scale_y.R`
+    - `setup_parallel.R`
+- `scripts/`: Experimental and analysis scripts
+  - `example.R`: Sample script demonstrating model usage
+  - `experiment.R`: Main experimental setup
+  - `visualization.Rmd`: Visualization and analysis notebook
+- `results/`: Output and results from model evaluations
+  - Contains experimental results and data files
+- `reports/`: Documentation and analysis reports
+  - Detailed analysis and experimental findings
+
+## Key Features
+
+- Comprehensive model comparison methodology
+- Advanced function approximation techniques
+- Rigorous performance evaluation across different model complexities
+
+## Methodology
+
+The project systematically compares GP and DeepGP models by: -
+Implementing standard and deep Gaussian Process models - Evaluating
+performance on diverse test functions - Analyzing prediction intervals
+and model coverage - Investigating model behavior across different
+dimensions and complexities
+
+## Performance Evaluation
+
+For detailed guidelines on evaluating model performance, please refer to
+the [RATE.md](RATE.md) file, which includes:
+
+- Evaluation metrics (RMSE, prediction interval coverage, computational
+  efficiency)
+- Benchmark results for different models and test functions
+- Instructions for running evaluations and interpreting results
+
+## Results
+
+The project demonstrates that:
+
+1.  DGP models can outperform standard GP models on complex, multimodal
+    functions
+2.  The prediction interval coverage has been improved to provide
+    reliable uncertainty estimates
+3.  Different model architectures perform differently depending on the
+    test function characteristics
+
+## License
+
+This project is licensed under the terms included in the LICENSE file.
+
+## References
+
+- Damianou, A., & Lawrence, N. (2013). Deep Gaussian Processes.
+  Artificial Intelligence and Statistics.
+- Surjanovic, S., & Bingham, D. (2013). Virtual Library of Simulation
+  Experiments: Test Functions and Datasets. Retrieved from
+  <http://www.sfu.ca/~ssurjano/>
